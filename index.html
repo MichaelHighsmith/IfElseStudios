@@ -1,87 +1,96 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>My Website</title>
+  <title>Demo Page</title>
   <style>
-    /* Style the tab links */
-    .tablink {
-      background-color: #555;
+    /* Style the header */
+    header {
+      background-color: #333;
       color: white;
-      float: left;
-      border: none;
-      outline: none;
-      cursor: pointer;
-      padding: 14px 16px;
-      font-size: 17px;
-      width: 25%;
-    }
-
-    .tablink:hover {
-      background-color: #777;
-    }
-
-    /* Style the tab content */
-    .tabcontent {
-      display: none;
-      padding: 50px;
+      padding: 30px;
       text-align: center;
+    }
+
+    /* Style the h1 element within the header */
+    header h1 {
+      font-size: 50px;
+      margin: 0;
+    }
+
+    /* Style the intro text */
+    .intro {
+      font-size: 20px;
+      margin: 20px 0;
+      text-align: center;
+    }
+
+    /* Style the container for the demo thumbnails */
+    .demo-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin: 50px 0;
+    }
+
+    /* Style the demo thumbnails */
+    .demo-thumbnail {
+      width: 300px;
+      height: 200px;
+      background-color: #ddd;
+      border: 1px solid #333;
+      margin: 10px;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Style the demo thumbnail overlays */
+    .demo-thumbnail .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      font-size: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+      cursor: pointer;
+      opacity: 0;
+    }
+
+    /* Show the demo thumbnail overlays on hover */
+    .demo-thumbnail:hover .overlay {
+      opacity: 1;
     }
   </style>
 </head>
 <body>
-  <!-- Create the tab links -->
-  <button class="tablink" onclick="openPage('Home', this, '#555')" id="defaultOpen">Home</button>
-  <button class="tablink" onclick="openPage('About', this, '#555')">About</button>
-  <button class="tablink" onclick="openPage('Tutorials', this, '#555')">Tutorials</button>
-  <button class="tablink" onclick="openPage('Team', this, '#555')">Team</button>
-  <button class="tablink" onclick="openPage('Contact Us', this, '#555')">Contact Us</button>
-
-  <!-- Create the tab content -->
-  <div id="Home" class="tabcontent">
-    <h3>Home</h3>
-    <p>Welcome to my website!</p>
+  <header>
+    <h1>If Else Studios</h1>
+  </header>
+  <div class="intro">
+    Check out these demos of our products and services.
   </div>
-
-  <div id="About" class="tabcontent">
-    <h3>About</h3>
-    <p>Learn more about me and my website.</p>
+  <div class="demo-container">
+    <div class="demo-thumbnail">
+      <img src="demo1.jpg" alt="Demo 1">
+      <div class="overlay">Demo 1</div>
+    </div>
+    <div class="demo-thumbnail">
+      <img src="demo2.jpg" alt="Demo 2">
+      <div class="overlay">Demo 2</div>
+    </div>
+    <div class="demo-thumbnail">
+      <img src="demo3.jpg" alt="Demo 3">
+      <div class="overlay">Demo 3</div>
+    </div>
+    <div class="demo-thumbnail">
+      <img src="demo4.jpg" alt="Demo 4">
+      <div class="overlay">Demo 4</div>
+    </div>
   </div>
-
-  <div id="Tutorials" class="tabcontent">
-    <h3>Tutorials</h3>
-    <p>Check out my tutorials on various topics.</p>
-  </div>
-
-  <div id="Team" class="tabcontent">
-    <h3>Team</h3>
-    <p>Meet the team behind my website.</p>
-  </div>
-
-  <div id="Contact Us" class="tabcontent">
-    <h3>Contact Us</h3>
-    <p>Get in touch with us through this form or by email.</p>
-  </div>
-
-  <script>
-    // Open a specific tab when the page loads
-    document.getElementById("defaultOpen").click();
-
-    // Function to open a tab and change the color of the tab link
-    function openPage(pageName, elmnt, color) {
-      // Hide all elements with class="tabcontent" by default
-      var i, tabcontent, tablinks;
-      tabcontent = document.getElementsByClassName("tabcontent");
-      for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-      }
-
-      // Remove the background color of all tab links
-      tablinks = document.getElementsByClassName("tablinks");
-for (i = 0; i < tablinks.length; i++) {
-tablinks[i].style.backgroundColor = "";
-}  // Show the specific tab content
-  document.getElementById(pageName).style.display = "block";
-
-  // Add the specific color to the button used to open the tab content
-  elmnt.style.backgroundColor = color;
-}
+</body>
+</html>
